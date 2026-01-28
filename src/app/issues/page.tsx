@@ -527,10 +527,25 @@ export default function IssuesPage() {
                         </div>
                       </td>
                       <td className="px-4 py-4">
-                        <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium ${status.bgColor} ${status.textColor}`}>
-                          {status.dotColor && <span className={`w-1.5 h-1.5 rounded-full ${status.dotColor}`}></span>}
-                          {status.label}
-                        </span>
+                        <div className="relative inline-block">
+                          <select
+                            value={bug.status}
+                            onChange={(e) => {
+                              e.stopPropagation();
+                              handleStatusChange(bug.id, e.target.value as BugStatus);
+                            }}
+                            className={`appearance-none cursor-pointer inline-flex items-center gap-1.5 pl-6 pr-7 py-1 rounded-full text-xs font-medium border-0 focus:outline-none focus:ring-2 focus:ring-blue-500 ${status.bgColor} ${status.textColor}`}
+                          >
+                            <option value="open">To Do</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="resolved">Fixed</option>
+                            <option value="closed">Closed</option>
+                          </select>
+                          <span className={`absolute left-2.5 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full pointer-events-none ${status.dotColor}`}></span>
+                          <svg className="absolute right-2 top-1/2 -translate-y-1/2 w-3 h-3 pointer-events-none" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                          </svg>
+                        </div>
                       </td>
                       <td className="px-4 py-4">
                         <div className="flex items-center gap-1.5">
