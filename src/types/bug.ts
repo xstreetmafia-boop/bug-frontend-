@@ -10,6 +10,8 @@ export interface Bug {
   priority: BugPriority;
   status: BugStatus;
   reportedBy: string;
+  assignee?: string;
+  tags?: string[];
   createdAt: Date;
   updatedAt: Date;
 }
