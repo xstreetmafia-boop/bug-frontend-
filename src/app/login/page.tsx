@@ -184,7 +184,7 @@ export default function LoginPage() {
             <div className="mt-4 pt-4 border-t border-slate-700">
               <p className="text-sm text-slate-400 text-center mb-3">Demo Account:</p>
               <div className="text-xs text-slate-500 text-center">
-                <p><span className="text-slate-300">admin@company.com</span> / admin123</p>
+                <p><span className="text-slate-300">admin@bugtracker.com</span> / admin123</p>
               </div>
             </div>
           )}
